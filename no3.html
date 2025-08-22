@@ -41,13 +41,8 @@
       margin-bottom: 15px;
     }
 
-    .btn {
-      display: flex;
-      gap: 20px;
-      position: relative;
-    }
-
-    .btn a {
+    /* YES button (fixed at bottom center) */
+    .yesBtn {
       text-decoration: none;
       background: white;
       padding: 10px 25px;
@@ -57,10 +52,32 @@
       font-size: 1rem;
       font-weight: bold;
       color: black;
-      position: absolute; /* for floating */
+      margin-top: 20px;
+      position: relative; /* stays in flow */
     }
 
-    .btn a:hover {
+    .yesBtn:hover {
+      background: #ff8080;
+      color: white;
+    }
+
+    /* NO button (moves randomly) */
+    #noBtn {
+      text-decoration: none;
+      background: white;
+      padding: 10px 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      transition: 0.3s;
+      font-size: 1rem;
+      font-weight: bold;
+      color: black;
+      position: absolute; /* free to move */
+      left: 60%;
+      top: 60%;
+    }
+
+    #noBtn:hover {
       background: #ff8080;
       color: white;
     }
@@ -68,22 +85,23 @@
 </head>
 <body>
   <div class="container">
-    <img src="images/photo3.jpg" alt="Funny Photo">
+    <img src="images/photo2.jpg" alt="Funny Photo">
 
     <h1>Please say yes 🥺</h1>
     <p>Please say Yes, don’t break my heart 💔</p>
 
-    <div class="btn">
-      <a href="yes.html" style="left:0; top:0;">Yes</a>
-      <a href="#" id="noBtn">No</a>
-    </div>
+    <!-- YES button stays fixed -->
+    <a href="yes.html" class="yesBtn">Yes ❤️</a>
+
+    <!-- NO button moves randomly -->
+    <a href="#" id="noBtn">No 😢</a>
   </div>
 
   <script>
     const noBtn = document.getElementById("noBtn");
+    const container = document.querySelector(".container");
 
     noBtn.addEventListener("mouseover", () => {
-      const container = document.querySelector(".container");
       const containerWidth = container.clientWidth - 100; // button width offset
       const containerHeight = container.clientHeight - 50; // button height offset
 
