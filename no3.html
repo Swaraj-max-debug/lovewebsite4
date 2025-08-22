@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>No Page 3</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffd6d6; /* light pink */
+      font-family: Arial, sans-serif;
+      text-align: center;
+      overflow: hidden; /* to prevent scrollbars */
+    }
+
+    .container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      position: relative;
+    }
+
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      margin: 15px 0 5px;
+    }
+
+    p {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 200px;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    .btn {
+      display: flex;
+      gap: 20px;
+      position: relative;
+    }
+
+    .btn a {
+      text-decoration: none;
+      background: white;
+      padding: 10px 25px;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+      transition: 0.3s;
+      font-size: 1rem;
+      font-weight: bold;
+      color: black;
+      position: absolute; /* for floating */
+    }
+
+    .btn a:hover {
+      background: #ff8080;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <img src="images/photo3.jpg" alt="Funny Photo">
+
+    <h1>Please say yes 🥺</h1>
+    <p>Please say Yes, don’t break my heart 💔</p>
+
+    <div class="btn">
+      <a href="yes.html" style="left:0; top:0;">Yes</a>
+      <a href="#" id="noBtn">No</a>
+    </div>
+  </div>
+
+  <script>
+    const noBtn = document.getElementById("noBtn");
+
+    noBtn.addEventListener("mouseover", () => {
+      const container = document.querySelector(".container");
+      const containerWidth = container.clientWidth - 100; // button width offset
+      const containerHeight = container.clientHeight - 50; // button height offset
+
+      const randomX = Math.floor(Math.random() * containerWidth);
+      const randomY = Math.floor(Math.random() * containerHeight);
+
+      noBtn.style.left = randomX + "px";
+      noBtn.style.top = randomY + "px";
+    });
+  </script>
+</body>
+</html>
